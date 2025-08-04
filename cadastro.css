@@ -1,1 +1,248 @@
 
+:root {
+    --spfc-red: #FF0000;
+    --spfc-dark-red: #CC0000;
+    --spfc-black: #000000;
+    --spfc-white: #FFFFFF;
+    --spfc-gray: #F5F5F5;
+    --spfc-dark-gray: #333333;
+    --border-radius: 8px;
+    --transition: all 0.3s ease;
+    --box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--spfc-gray);
+    color: var(--spfc-dark-gray);
+    min-height: 100vh;
+    padding: 20px;
+    background-image: url('https://example.com/spfc-pattern.png');
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.form-container {
+    background-color: var(--spfc-white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
+    max-width: 800px;
+    margin: 0 auto;
+    border-top: 5px solid var(--spfc-red);
+    position: relative;
+}
+
+
+.form-header {
+    background: linear-gradient(135deg, var(--spfc-red), var(--spfc-dark-red));
+    color: var(--spfc-white);
+    padding: 25px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.form-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="30" font-weight="bold">SPFC</text></svg>');
+    background-repeat: repeat;
+    background-size: 100px;
+}
+
+
+.form-header h2 {
+    font-weight: 700;
+    font-size: 2rem;
+    margin-bottom: 5px;
+    position: relative;
+    text-transform: uppercase;
+}
+
+
+.form-header p {
+    font-weight: 400;
+    opacity: 0.9;
+    position: relative;
+}
+
+
+.form-body {
+    padding: 30px;
+}
+
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+
+.form-section h5 {
+    color: var(--spfc-red);
+    font-weight: 600;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--spfc-gray);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.form-section h5 i {
+    font-size: 1.2rem;
+}
+
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+
+.col {
+    flex: 1;
+    min-width: 200px;
+}
+
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+
+.input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--spfc-dark-gray);
+}
+
+
+.input-label.required::after {
+    content: " *";
+    color: var(--spfc-red);
+}
+
+
+.input-field {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: var(--border-radius);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.95rem;
+    transition: var(--transition);
+}
+
+
+.input-field:focus {
+    outline: none;
+    border-color: var(--spfc-red);
+    box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.1);
+}
+
+
+select.input-field {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333'%3e%3cpath d='M7 10l5 5 5-5z'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+}
+
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, var(--spfc-red), var(--spfc-dark-red));
+    border: none;
+    border-radius: var(--border-radius);
+    color: var(--spfc-white);
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transition);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+
+.btn-submit:hover {
+    background: linear-gradient(135deg, var(--spfc-dark-red), var(--spfc-red));
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(255, 0, 0, 0.2);
+}
+
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+
+.club-logo {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+
+.club-logo img {
+    height: 60px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-body {
+        padding: 20px;
+    }
+   
+    .col {
+        min-width: 100%;
+    }
+   
+    .form-header h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+/* Validação */
+.input-error {
+    border-color: var(--spfc-red) !important;
+}
+
+
+.error-message {
+    color: var(--spfc-red);
+    font-size: 0.8rem;
+    margin-top: 5px;
+    display: none;
+}
+
+
+.input-error + .error-message {
+    display: block;
+}
